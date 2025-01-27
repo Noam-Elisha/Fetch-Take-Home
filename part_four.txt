@@ -1,0 +1,45 @@
+Assuming slack message:
+
+Hi,
+
+I've been looking through the dataset you sent me and I have some questions:
+
+1. Is there a wider dataset containing information regarding brand CPGs and brand categories?
+
+2. For the user lastLogin value: if this value is missing, does that mean the user has never logged in?
+
+3. Could you please explain how brands are considered to be a "Top Brand" or not?
+
+4. What does a barcode of 4011 mean? This seems to be a default value applied to some items inconsistently.
+
+As I was looking through the data, I found a few issues that
+may be worth looking into:
+
+1. There are a number of receipts in the dataset that have no rewardsReceiptItemList. 
+    How can we have a receipt without any items?
+
+2. There are 484 Receipts with no purchasedItemCount. These correlate strongly with
+    the receipts that have no item list, but there are some that all come from one user
+    and all have the same one item on them. They are pending approval.
+
+3. As far as individual products go: over 50% of the products in the dataset
+    have no barcode, and no user flagged barcode. This could be a problem for
+    creating a more robust dataset in the future. In addition to that about 10% of the dataset
+    is about items that are not found, either with no description, or no barcode at all, or
+    the barcode is 4011
+
+4. For brand data, about 38% of the brands are test brands. I've decided to not include
+    these brands in the analysis.
+
+5. Of those brands that are not test brands, about 21% have no category, and
+    more severely, about 88% have no category code, which could be important
+    for scaling the dataset in the future.
+
+6. Lastly, in the users dataset, over half of the data is duplicate data. Aside from that
+    there a few inconsistencies that seem to be related to old accounts from employees.
+    These could be cleaned or be removed as they won't provide value in future analysis.
+
+Thank you,
+Noam
+
+
